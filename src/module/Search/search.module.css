@@ -1,0 +1,21 @@
+.overAll {
+  padding: 40px;
+}
+.listDivStyle {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+.listStyle {
+  padding: 8px 0px;
+}
+.inputStyle {
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: 1px solid #dfdfdf;
+  width: 40%;
+}
+
+.loaderStyle {
+    color: #b3b3b3;
+}

@@ -18,7 +18,7 @@ function App() {
   axios.defaults.headers.common["user-access-token"] = getTocken;
 
   return (
-    <div className="App">
+    <div>
       <Search />
     </div>
   );
