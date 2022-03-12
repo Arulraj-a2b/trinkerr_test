@@ -1,24 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import axios from "axios";
+import { userApi } from "./apiRoutes";
+import { useEffect } from "react";
+import Search from "./module/Search/Search";
 
 function App() {
+  axios.defaults.baseURL = "http://3.109.141.224:5000/";
+  useEffect(() => {
+    axios.get(userApi).then((res) => {
+      if (res.data && res.data.token) {
+        localStorage.setItem("token", res.data.token);
+      }
+    });
+  }, []);
+
+  const getTocken: any = localStorage.getItem("token");
+  axios.defaults.headers.common["user-access-token"] = getTocken;
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Search />
     </div>
   );
 }
